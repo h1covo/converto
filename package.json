@@ -1,0 +1,22 @@
+{
+  "name": "currency-converter",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "实时汇率转换器：React + TypeScript + Vite 前端，Node + Express 中转层，Frankfurter 数据源",
+  "workspaces": [
+    "server",
+    "web"
+  ],
+  "scripts": {
+    "dev": "concurrently -n server,web -c blue,green \"npm run dev -w server\" \"npm run dev -w web\"",
+    "build": "npm run build -w web && npm run build -w server",
+    "build:static": "npm run build:static -w web",
+    "start": "npm run start -w server",
+    "test": "npm run test -w server && npm run test -w web",
+    "typecheck": "npm run typecheck -w server && npm run typecheck -w web"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0"
+  }
+}
